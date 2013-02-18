@@ -1,0 +1,30 @@
+<?php
+
+function mymodule_menu() {
+    $items = array();
+
+    $items['content/%'] = array(
+        'title' => 'Hello nodeview',
+        'page callback' => 'mymodule_say_hello_world',
+  'page arguments' => array(1),
+        'access callback' => TRUE,
+        'weight' => -1,
+     );
+
+    return $items;
+}
+
+function mymodule_say_hello_world($nid) {
+    
+ 
+
+ 
+ $node = node_load($nid);
+ $output = node_view($node);
+ dpm($output);
+ return $output;
+ 
+ 
+    //return theme_item_list($vars);
+}
+

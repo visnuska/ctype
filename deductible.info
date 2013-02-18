@@ -1,0 +1,8 @@
+;$Id$
+name = CalculateDeductible
+description = CalculateDeductible
+package = Drupal 7 Development
+core = 7.x
+files[] = deductible.module
+;dependencies[] = autoload
+php = 5.2

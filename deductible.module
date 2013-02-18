@@ -1,0 +1,47 @@
+<?php 
+//;$Id$
+
+function deductible_menu(){
+$items['deductible/calculate']=array(
+'title'=>'Calculate Deductible',
+'page callback'=>'drupal_get_form',
+'page arguments'=>array('deductible_simple_form'),
+'access arguments' => array('administer user'),
+);
+return $items;
+}
+
+function deductible_simple_form($form,&$form_submit){
+      $form['Make'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Make'),
+          '#cols' => 30,
+           '#rows' => 1,
+      );
+        $form['Model'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Models'),
+          '#cols' => 30,
+        '#rows' => 1,
+      );
+      $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => t('Save'),
+       '#submit' => array('deductible_submit'),
+      
+      );
+      return $form;
+}
+
+/**
+ * Implementation of hook_perm().
+ */
+function deductible_perm() {
+  return array('use save and edit', 'administer save and edit');
+}
+
+function deductible_submit($form, &$form_values){
+      watchdog('Deductibe', 'deductible', array(), WATCHDOG_DEBUG);
+      $message = 'You have submitted the ' /*. $form_id . ' form which contains the following data:<pre>' . print_r($form_values,true) . '</pre>'*/;
+      drupal_set_message(t($message));
+    }

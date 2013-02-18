@@ -1,0 +1,8 @@
+;$Id$
+name = email example
+description = email example
+package = Drupal 7 Development
+core = 7.x
+files[] = email_example.info
+;dependencies[] = autoload
+php = 5.2

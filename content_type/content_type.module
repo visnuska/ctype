@@ -1,0 +1,22 @@
+<?php
+
+
+function content_type_node_info() {
+  
+  $items['content_type'] = array(
+    'name' => t('Content Type'),
+    'type' => 'content_type',
+    'base' => 'node_content',
+    'description' => t('content type with a title and body.'),
+    'has_title' => '1',
+    'title_label' => t('Title'),
+    'body_label' => t('Description'),
+    'help' => t('Please fill in all fields.'),
+  );
+  
+  return $items;
+}
+
+function content_type_form($node, $form_state) {
+  return content_form($node, $form_state);
+}
