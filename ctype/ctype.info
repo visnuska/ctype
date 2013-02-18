@@ -1,0 +1,8 @@
+;$Id$
+name = Ctype
+description = ctype
+package = Drupal 7 Development
+core = 7.x
+files[] = ctype.module
+;dependencies[] = autoload
+php = 5.2
